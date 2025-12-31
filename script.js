@@ -80,7 +80,10 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
 
   // Recursively clean all children from foggy CSS
   function cleanElement(el) {
-    el.style.background = "#fff";
+    // Don't apply white background to IMG elements to prevent foggy appearance
+    if (el.tagName !== 'IMG') {
+      el.style.background = "#fff";
+    }
     el.style.backdropFilter = "none";
     el.style.filter = "none";
     el.style.opacity = "1";
